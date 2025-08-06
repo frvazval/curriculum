@@ -1,10 +1,11 @@
 :root {
-    --primary-color: #2c3e50; /* Azul oscuro */
-    --secondary-color: #3498db; /* Azul claro */
-    --background-color: #ecf0f1; /* Gris claro */
-    --font-color: #34495e; /* Gris oscuro */
+    --primary-color: #1565c0; /* Azul fuerte */
+    --secondary-color: #1976d2; /* Azul medio */
+    --background-color: #e3f2fd; /* Azul muy claro */
+    --font-color: #263238; /* Gris oscuro */
     --white-color: #ffffff;
-    --border-color: #bdc3c7;
+    --border-color: #90caf9; /* Azul claro */
+    --accent-color: #0d47a1; /* Azul profundo */
 }
 
 * {
@@ -17,7 +18,7 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     background-color: var(--background-color);
     color: var(--font-color);
-    line-height: 1.5; /* Reducido para ahorrar espacio */
+    line-height: 1.5;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -31,50 +32,58 @@ body {
 #download-pdf-btn {
     display: block;
     margin: 0 auto 20px auto;
-    padding: 12px 25px;
-    background-color: var(--secondary-color);
+    padding: 14px 30px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     color: var(--white-color);
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 500;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(13, 71, 161, 0.10);
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 #download-pdf-btn:hover {
-    background-color: #2980b9;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    box-shadow: 0 4px 16px rgba(21, 101, 192, 0.12);
 }
 
 #resume {
     display: flex;
-    width: 794px;      /* DIN A4 exacto en píxeles */
-    min-height: 1123px;/* Altura DIN A4 en píxeles (297mm) */
+    width: 794px;
+    min-height: 1123px;
     background: var(--white-color);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgba(13, 71, 161, 0.10);
     margin: 0 auto;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 3px solid var(--border-color);
 }
 
 /* --- Elementos Editables --- */
 [contenteditable="true"] {
     cursor: text;
     padding: 2px 4px;
-    border-radius: 3px;
+    border-radius: 5px;
+    background: #e3f2fd;
     transition: background-color 0.3s;
 }
 
 [contenteditable="true"]:hover,
 [contenteditable="true"]:focus {
-    background-color: #f0f8ff;
-    outline: 1px dashed var(--secondary-color);
+    background-color: #bbdefb;
+    outline: 2px dashed var(--accent-color);
 }
 
 /* --- Columnas --- */
 .sidebar {
     flex: 1;
-    background-color: var(--primary-color);
-    color: var(--white-color);
+    background: linear-gradient(135deg, var(--secondary-color) 70%, var(--accent-color) 100%);
+    color: #1a237e; /* Azul oscuro para mejor legibilidad */
     padding: 30px;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
 }
 
 .main-content {
@@ -83,22 +92,27 @@ body {
 }
 
 .section {
-    margin-bottom: 20px; /* Reducido */
+    margin-bottom: 24px;
+    background: #e3f2fd;
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 6px rgba(21, 101, 192, 0.07);
 }
 
 .section-title {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 15px; /* Reducido */
-    letter-spacing: 1px;
-    margin-bottom: 12px; /* Reducido */
-    padding-bottom: 5px;
-    border-bottom: 2px solid;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid var(--accent-color);
+    color: var(--primary-color);
 }
 
 .sidebar .section-title {
-    color: var(--secondary-color);
-    border-bottom-color: var(--secondary-color);
+    color: #1a237e; /* Azul oscuro para títulos */
+    border-bottom-color: #1a237e;
 }
 
 .main-content .section-title {
@@ -108,20 +122,23 @@ body {
 
 /* --- Cabecera Principal --- */
 .header h1 {
-    font-size: 38px; /* Reducido */
+    font-size: 42px;
     font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 8px #90caf933;
 }
 
 /* --- Contenido --- */
 p, li {
-    font-size: 14px; /* Tamaño de fuente base reducido */
+    font-size: 15px;
 }
 
 .contact-info p {
-    margin-bottom: 8px;
-    font-size: 14px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #1a237e; /* Azul oscuro para textos en la barra lateral */
 }
 
 #resumen p {
@@ -134,14 +151,14 @@ p, li {
 }
 
 h3 {
-    font-size: 17px; /* Reducido */
-    font-weight: 500;
-    color: var(--secondary-color);
-    margin-bottom: 2px;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 4px;
 }
 
 .main-content h3 {
-     color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .job-company-duration,
@@ -154,15 +171,15 @@ h3 {
 
 ul {
     list-style-position: inside;
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 li {
-    margin-bottom: 4px; /* Reducido */
+    margin-bottom: 6px;
 }
 
 #aptitudes h4 {
-    color: var(--white-color);
+    color: #1a237e; /* Azul oscuro para textos en la barra lateral */
     font-size: 15px;
     font-weight: 500;
     margin-top: 15px;
@@ -171,4 +188,5 @@ li {
 
 #aptitudes ul li {
     font-size: 14px;
+    color: #1a237e; /* Azul oscuro para textos en la barra lateral */
 }

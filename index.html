@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Currículum</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <button id="download-pdf-btn">Descargar como PDF</button>
+
+        <div id="resume">
+            <aside class="sidebar">
+                <div class="contact-info section">
+                    <h2 class="section-title">Contacto</h2>
+                    <p id="telefono"></p>
+                    <p id="email"></p>
+                </div>
+
+                <div id="aptitudes" class="section">
+                    <h2 class="section-title">Aptitudes</h2>
+                    </div>
+            </aside>
+
+            <main class="main-content">
+                <header class="header">
+                    <h1 id="nombre"></h1>
+                </header>
+                
+                <section class="section">
+                    <h2 class="section-title">Resumen Profesional</h2>
+                    <div id="resumen">
+                        </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Experiencia Laboral</h2>
+                    <div id="experiencia">
+                        </div>
+                </section>
+                
+                <!-- Encabezado personalizado antes de Formación -->
+                <div id="encabezado-formacion" class="section">
+                    <h2 class="section-title">Formación académica y técnica</h2>
+                </div>
+
+                <section id="formacion" class="section">
+                    <h2 class="section-title">Formación</h2>
+                    <div id="contenido-formacion">
+                        </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

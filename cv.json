@@ -1,0 +1,154 @@
+{
+  "nombre": "Francisco Vázquez Valera",
+  "contacto": {
+    "telefono": "675-024-662",
+    "email": "frvazval@gmail.com"
+  },
+  "resumen": [
+    "Profesional polivalente con más de 20 años en entornos técnicos (industriales e informáticos).",
+    "Electrónica, informática y mecánica, con capacidad de adaptación y aprendizaje continuo.",
+    "Comprometido, meticuloso y orientado a resultados, aportando fiabilidad y eficacia."
+  ],
+  "experiencia": [
+    {
+      "puesto": "Técnico Informático",
+      "empresa": "ACER COMPUTER IBERIA / SERTEC 360, Gavà",
+      "duracion": "8 años",
+      "responsabilidades": [
+        "Diagnóstico y reparación de portátiles, configuración de sistemas y software.",
+        "Atención al cliente y resolución de incidencias técnicas.",
+        "Creación/restauración de imágenes con Acronis y Ghost."
+      ]
+    },
+    {
+      "puesto": "Técnico SAT",
+      "empresa": "ELECTROMECÁNICA COMPTE S.L., Hospitalet de Llobregat",
+      "duracion": "8 años",
+      "responsabilidades": [
+        "Reparación de maquinaria eléctrica y neumática (BOSCH, FESTO, MAKITA, VIRUTEX).",
+        "Diagnóstico y mantenimiento de taladros, sierras, lijadoras, etc."
+      ]
+    },    
+    {
+      "puesto": "Oficial de 1ª - CNC",
+      "empresa": "COSMOLD S.A., Hospitalet de Llobregat",
+      "duracion": "3 años",
+      "responsabilidades": [
+        "Programación y mecanizado en fresadora CNC para moldes de precisión.",
+        "Control de calidad y ajustes de máquina.",
+        "Gestión de piezas críticas en entornos de alta exigencia."
+      ]
+    },
+    {
+      "puesto": "Operario",
+      "empresa": "BABYPLAST S.A., Hospitalet de Llobregat",
+      "duracion": "6 meses",
+      "responsabilidades": [
+        "Montaje y ensamblaje de maquinaria para inyección de plástico.",
+        "Control de calidad y pruebas de funcionamiento."
+      ]
+    },
+    {
+      "puesto": "Técnico",
+      "empresa": "IDENT REPAIR, Barcelona",
+      "duracion": "4 meses",
+      "responsabilidades": [
+        "Reparación de instrumental quirúrgico odontológico y maxilofacial.",
+        "Mantenimiento preventivo y correctivo de equipos médicos para odontología."
+      ]
+    },
+    {
+      "puesto": "Técnico / Operario",
+      "empresa": "VARIAS ETT, Barcelona y Hospitalet",
+      "duracion": "Varios periodos",
+      "responsabilidades": [
+        "Producción en cadena, manejo de maquinaria automatizada y robots.",
+        "Mantenimiento básico de instalaciones y equipos.",
+        "Atención al cliente y resolución de incidencias técnicas.",
+        "Control de calidad y ajustes de máquina.",
+        "Control de calidad y pruebas de funcionamiento."
+      ]
+    }
+  ],
+  "formacion": [
+    {
+      "anio": "2025",
+      "titulo": "IFCD0110 - Programación con lenguajes orientados a objetos y bases de datos relacionales",
+      "institucion": "STUCOM (Formación del SOC)"
+    },
+    {
+      "anio": "2024",
+      "titulo": "ELEQ0111 Operaciones auxiliares de montaje y mantenimiento de equipos eléctricos y electrónicos",
+      "institucion": "Instituto Rambla Prim (Formación del SOC)"
+    },
+    {
+      "anio": "2023",
+      "titulo": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (1er semestre)",
+      "institucion": "UOC-Jesuitas FP"
+    },
+    {
+      "anio": "2017",
+      "titulo": "Beca en COBOL/JCL",
+      "institucion": "SINENSIA/INDRA (Banco Sabadell)"
+    },
+    {
+      "anio": "2012",
+      "titulo": "Técnico en Hardware (500 horas)",
+      "institucion": "SOC"
+    },    
+    {
+      "anio": "1991",
+      "titulo": "FP2 Metal – Técnico Especialista",
+      "institucion": "IFP Pedraforca"
+    },
+    {
+      "anio": "1990",
+      "titulo": "Programador CNC (Heidenhain)",
+      "institucion": "ASCAMM"
+    },
+    {
+      "anio": "1989",
+      "titulo": "Programador CNC (ISO 8020)",
+      "institucion": "INEM"
+    }    
+  ],
+  "aptitudes": [
+    {
+      "categoria": "Técnicas",
+      "items": [
+        "Electrónica y electricidad",
+        "Mecánica industrial",
+        "Informática y redes",
+        "Automatización y robótica",
+        "Mantenimiento preventivo y correctivo"
+      ]
+    },
+    {
+      "categoria": "Informáticas",
+      "items": [
+        "Sistemas operativos (Windows, Linux)",        
+        "Programación básica",
+        "SQL, HTML, CSS, JavaScript, Python ...",
+        "Redes y conectividad",
+        "Herramientas de diagnóstico"
+      ]
+    },
+    {
+      "categoria": "Idiomas",
+      "items": [
+        "Español: Nativo",
+        "Catalán: Medio"        
+      ]
+    },
+    {
+      "categoria": "Personales",
+      "items": [
+        "Trabajo en equipo",
+        "Resolución de problemas",
+        "Orientación al detalle",
+        "Capacidad de aprendizaje",
+        "Adaptabilidad"
+      ]
+    }
+  ]
+}

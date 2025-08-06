@@ -48,8 +48,8 @@ body {
 
 #resume {
     display: flex;
-    width: 210mm;
-    min-height: 297mm;
+    width: 794px;      /* DIN A4 exacto en píxeles */
+    min-height: 1123px;/* Altura DIN A4 en píxeles (297mm) */
     background: var(--white-color);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     margin: 0 auto;

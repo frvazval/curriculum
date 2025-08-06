@@ -84,28 +84,19 @@ document.addEventListener('DOMContentLoaded', () => {
     pdf.setFont("Roboto");
 
     // Funcionalidad de descarga PDF
-    downloadBtn.addEventListener('click', function () {
-        // Espera a que todas las fuentes estén cargadas
+    document.getElementById('download-pdf-btn').addEventListener('click', function () {
         document.fonts.ready.then(function () {
             const resume = document.querySelector("#resume");
-            const pdfWidth = 595; // A4 width in points
-            const pdfHeight = 842; // A4 height in points
-
             html2canvas(resume, {
-                scale: 2 // Mejora la calidad de la imagen
+                scale: 2 // mejora la calidad de la imagen
             }).then(canvas => {
                 const imgData = canvas.toDataURL('image/png');
-                // Calcula el tamaño proporcional
-                const imgProps = {
-                    width: canvas.width,
-                    height: canvas.height
-                };
-                const ratio = Math.min(pdfWidth / imgProps.width, pdfHeight / imgProps.height);
-                const imgWidth = imgProps.width * ratio;
-                const imgHeight = imgProps.height * ratio;
-
                 const pdf = new window.jspdf.jsPDF('p', 'pt', 'a4');
-                pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                // Calcula el tamaño proporcional para A4
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                // Ajusta la imagen para que ocupe toda la hoja A4
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
                 pdf.save("curriculum.pdf");
             });
         });

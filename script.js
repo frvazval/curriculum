@@ -73,32 +73,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
+    // Ejemplo de cómo agregar la fuente Roboto a jsPDF
+    const robotoFontBase64 = 'AAEAAAASAQAABAAgR0RFRrRCsIIAA...'; // Pega aquí el base64 de Roboto-Regular.ttf
+
+    window.jsPDF = window.jspdf.jsPDF;
+
+    const pdf = new jsPDF();
+    pdf.addFileToVFS("Roboto-Regular.ttf", robotoFontBase64);
+    pdf.addFont("Roboto-Regular.ttf", "Roboto", "normal");
+    pdf.setFont("Roboto");
+
     // Funcionalidad de descarga PDF
-    downloadBtn.addEventListener('click', () => {
-        const { jsPDF } = window.jspdf;
-        const resumeElement = document.getElementById('resume');
+    downloadBtn.addEventListener('click', function () {
+        // Espera a que todas las fuentes estén cargadas
+        document.fonts.ready.then(function () {
+            const resume = document.querySelector("#resume");
+            const pdfWidth = 595; // A4 width in points
+            const pdfHeight = 842; // A4 height in points
 
-        // Usamos html2canvas para capturar el div como una imagen
-        html2canvas(resumeElement, {
-            scale: 3, // Aumenta la escala para mayor resolución
-            useCORS: true 
-        }).then(canvas => {
-            const imgData = canvas.toDataURL('image/png');
-            
-            // Creamos un PDF en tamaño A4
-            const pdf = new jsPDF({
-                orientation: 'portrait',
-                unit: 'mm',
-                format: 'a4'
+            html2canvas(resume, {
+                scale: 2 // Mejora la calidad de la imagen
+            }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                // Calcula el tamaño proporcional
+                const imgProps = {
+                    width: canvas.width,
+                    height: canvas.height
+                };
+                const ratio = Math.min(pdfWidth / imgProps.width, pdfHeight / imgProps.height);
+                const imgWidth = imgProps.width * ratio;
+                const imgHeight = imgProps.height * ratio;
+
+                const pdf = new window.jspdf.jsPDF('p', 'pt', 'a4');
+                pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                pdf.save("curriculum.pdf");
             });
-
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = pdf.internal.pageSize.getHeight();
-            
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            
-            const fileName = nombreEl.textContent.trim().replace(' ', '_') + '_CV.pdf';
-            pdf.save(fileName);
         });
     });
 

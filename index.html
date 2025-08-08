@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editor de Currículum</title>
+    <title>Editor de Currículum Profesional</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #1565c0;
-            --secondary-color: #1976d2;
-            --background-color: #e3f2fd;
-            --font-color: #263238;
+            --primary-color: #0d47a1;   /* Azul oscuro, más formal */
+            --secondary-color: #f5f5f5; /* Gris claro para fondos de sección */
+            --background-color: #eef2f5; /* Un gris muy suave para el fondo general */
+            --font-color: #212121;      /* Negro/gris oscuro para texto */
             --white-color: #ffffff;
-            --border-color: #90caf9;
-            --accent-color: #0d47a1;
+            --border-color: #b0bec5;    /* Un gris sutil para bordes */
+            --accent-color: #1565c0;   /* Un azul un poco más brillante para cabeceras y énfasis */
         }
 
         * {
@@ -28,10 +28,10 @@
             font-family: 'Roboto', Arial, sans-serif;
             background-color: var(--background-color);
             color: var(--font-color);
-            line-height: 1.5;
+            line-height: 1.6; /* Aumentado para mejor legibilidad */
             display: flex;
             justify-content: center;
-            padding: 20px;
+            padding: 25px;
         }
 
         .container {
@@ -41,22 +41,22 @@
 
         #download-pdf-btn {
             display: block;
-            margin: 0 auto 20px auto;
-            padding: 14px 30px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            margin: 0 auto 25px auto;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
             color: var(--white-color);
             border: none;
-            border-radius: 25px;
-            font-size: 18px;
-            font-weight: 700;
+            border-radius: 8px; /* Menos redondeado, más profesional */
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(13, 71, 161, 0.10);
-            transition: background 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         #download-pdf-btn:hover {
-            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
-            box-shadow: 0 4px 16px rgba(21, 101, 192, 0.12);
+            background-color: var(--accent-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         #resume {
@@ -64,111 +64,134 @@
             width: 794px;
             min-height: 1123px;
             background: var(--white-color);
-            box-shadow: 0 0 30px rgba(13, 71, 161, 0.10);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             margin: 0 auto;
-            border-radius: 18px;
+            border-radius: 6px; /* Más sutil */
             overflow: hidden;
-            border: 3px solid var(--border-color);
+            border: 1px solid #ddd;
         }
 
         /* --- Elementos Editables --- */
         [contenteditable="true"] {
             cursor: text;
             padding: 2px 4px;
-            border-radius: 5px;
-            background: #e3f2fd;
-            transition: background-color 0.3s;
+            border-radius: 4px;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         [contenteditable="true"]:hover,
         [contenteditable="true"]:focus {
-            background-color: #bbdefb;
-            outline: 2px dashed var(--accent-color);
+            background-color: #e3f2fd;
+            outline: 1px solid var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1);
         }
 
         /* --- Columnas --- */
         .sidebar {
-            flex: 1;
-            background: linear-gradient(135deg, var(--secondary-color) 70%, var(--accent-color) 100%);
-            color: #1a237e;
-            padding: 30px;
-            border-top-left-radius: 18px;
-            border-bottom-left-radius: 18px;
+            flex: 0.8; /* Ligeramente más estrecho para dar más espacio al contenido */
+            background: var(--secondary-color);
+            color: var(--font-color);
+            padding: 40px 25px;
         }
 
         .main-content {
-            flex: 2.5;
-            padding: 30px 40px;
+            flex: 2.2;
+            padding: 40px 35px;
         }
 
         .section {
-            margin-bottom: 24px;
-            background: #e3f2fd;
-            border-radius: 12px;
-            padding: 18px 20px;
-            box-shadow: 0 1px 6px rgba(21, 101, 192, 0.07);
+            margin-bottom: 28px;
+            border-radius: 0; /* Sin radio interno */
+            padding: 0;
+            box-shadow: none; /* Sin sombra interna */
         }
 
         .section-title {
             text-transform: uppercase;
             font-weight: 700;
-            font-size: 17px;
-            letter-spacing: 1.5px;
-            margin-bottom: 14px;
-            padding-bottom: 7px;
-            border-bottom: 2px solid var(--accent-color);
+            font-size: 16px;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
             color: var(--primary-color);
         }
 
         .sidebar .section-title {
-            color: #1a237e;
-            border-bottom-color: #1a237e;
-        }
-
-        .main-content .section-title {
             color: var(--primary-color);
             border-bottom-color: var(--primary-color);
         }
 
         /* --- Cabecera Principal --- */
+        .header {
+            margin-bottom: 30px;
+        }
+
         .header h1 {
-            font-size: 42px;
+            font-size: 40px;
             font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            text-shadow: 1px 2px 8px #90caf933;
+            margin-bottom: 8px;
+            letter-spacing: 1.5px;
+            text-shadow: none; /* Estilo más plano y limpio */
+        }
+        
+        #puesto-actual {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--font-color);
         }
 
         /* --- Contenido --- */
         p, li {
-            font-size: 15px;
+            font-size: 14px;
+            color: var(--font-color);
         }
 
         .contact-info p {
-            margin-bottom: 10px;
-            font-size: 15px;
-            color: #1a237e;
+            margin-bottom: 12px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info p::before { /* Iconos simulados para un look más moderno */
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            background-color: var(--primary-color);
+        }
+
+        p#telefono::before {
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") no-repeat center;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") no-repeat center;
+        }
+
+        p#email::before {
+             -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E") no-repeat center;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E") no-repeat center;
         }
 
         #resumen p {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .job,
         .course {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         h3 {
-            font-size: 19px;
-            font-weight: 700;
+            font-size: 18px;
+            font-weight: 500;
             color: var(--accent-color);
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .main-content h3 {
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
         .job-company-duration,
@@ -177,11 +200,13 @@
             font-weight: 400;
             font-style: italic;
             margin-bottom: 8px;
+            color: #546e7a;
         }
 
         ul {
-            list-style-position: inside;
-            padding-left: 10px;
+            list-style-type: disc; /* Estilo de lista estándar */
+            list-style-position: outside;
+            padding-left: 20px;
         }
 
         li {
@@ -189,16 +214,21 @@
         }
 
         #aptitudes h4 {
-            color: #1a237e;
+            color: var(--font-color);
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 700;
             margin-top: 15px;
             margin-bottom: 8px;
         }
 
         #aptitudes ul li {
             font-size: 14px;
-            color: #1a237e;
+            color: var(--font-color);
+            padding-left: 0;
+        }
+        #aptitudes ul {
+             list-style-type: none;
+             padding-left: 0;
         }
     </style>
 </head>
@@ -210,8 +240,8 @@
             <aside class="sidebar">
                 <div class="contact-info section">
                     <h2 class="section-title">Contacto</h2>
-                    <p id="telefono"></p>
-                    <p id="email"></p>
+                    <p id="telefono" contenteditable="true"></p>
+                    <p id="email" contenteditable="true"></p>
                 </div>
 
                 <div id="aptitudes" class="section">
@@ -221,26 +251,23 @@
 
             <main class="main-content">
                 <header class="header">
-                    <h1 id="nombre"></h1>
+                    <h1 id="nombre" contenteditable="true"></h1>
+                    <p id="puesto-actual" contenteditable="true">Tu Puesto Actual o Título</p>
                 </header>
                 
-                <section class="section">
+                <section id="resumen-section" class="section">
                     <h2 class="section-title">Resumen Profesional</h2>
                     <div id="resumen"></div>
                 </section>
 
-                <section class="section">
+                <section id="experiencia-section" class="section">
                     <h2 class="section-title">Experiencia Laboral</h2>
                     <div id="experiencia"></div>
                 </section>
                 
-                <div id="encabezado-formacion" class="section">
-                    <h2 class="section-title">Formación académica y técnica</h2>
-                </div>
-
-                <section id="formacion" class="section">
+                <section id="formacion-section" class="section">
                     <h2 class="section-title">Formación</h2>
-                    <div id="contenido-formacion"></div>
+                    <div id="formacion"></div>
                 </section>
             </main>
         </div>
@@ -252,61 +279,58 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const nombreEl = document.getElementById('nombre');
+            const puestoActualEl = document.getElementById('puesto-actual');
             const telefonoEl = document.getElementById('telefono');
             const emailEl = document.getElementById('email');
             const resumenContainer = document.getElementById('resumen');
             const experienciaContainer = document.getElementById('experiencia');
             const formacionContainer = document.getElementById('formacion');
             const aptitudesContainer = document.getElementById('aptitudes');
-            const downloadBtn = document.getElementById('download-pdf-btn');
-
+            
             // Cargar los datos del JSON
             async function loadResumeData() {
                 try {
                     const response = await fetch('cv.json');
                     if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        throw new Error(`Error HTTP: ${response.status}`);
                     }
                     const data = await response.json();
                     populateResume(data);
-                    makeEditable();
+                    makeEditable(); // Hacer editable DESPUÉS de poblar
                 } catch (error) {
                     console.error("No se pudo cargar el archivo cv.json:", error);
-                    alert("Error: No se pudo cargar el archivo cv.json. Asegúrate de que el archivo existe en la misma carpeta y no tiene errores de formato.");
+                    alert("Error: No se pudo cargar el archivo cv.json. Asegúrate de que existe en la misma carpeta y su formato es correcto.");
                 }
             }
 
             // Volcar los datos en el HTML
             function populateResume(data) {
-                // Cabecera y Contacto
                 nombreEl.textContent = data.nombre;
-                telefonoEl.textContent = `Tel: ${data.contacto.telefono}`;
-                emailEl.textContent = `Email: ${data.contacto.email}`;
+                puestoActualEl.textContent = data.puesto_actual || 'Tu Puesto Actual'; // Añade esto a tu JSON
+                telefonoEl.textContent = data.contacto.telefono;
+                emailEl.textContent = data.contacto.email;
                 
-                // Resumen
                 resumenContainer.innerHTML = data.resumen.map(p => `<p>${p}</p>`).join('');
 
-                // Experiencia
                 experienciaContainer.innerHTML = data.experiencia.map(job => `
                     <div class="job">
                         <h3>${job.puesto}</h3>
-                        <p class="job-company-duration">${job.empresa} (${job.duracion})</p>
+                        <p class="job-company-duration">${job.empresa} | ${job.duracion}</p>
                         <ul>
                             ${job.responsabilidades.map(r => `<li>${r}</li>`).join('')}
                         </ul>
                     </div>
                 `).join('');
                 
-                // Formación
                 formacionContainer.innerHTML = data.formacion.map(course => `
                     <div class="course">
                         <h3>${course.titulo}</h3>
-                        <p class="course-institution">${course.institucion} (${course.anio})</p>
+                        <p class="course-institution">${course.institucion} | ${course.anio}</p>
                     </div>
                 `).join('');
 
-                // Aptitudes
-                aptitudesContainer.innerHTML += data.aptitudes.map(category => `
+                // Se mantiene la estructura original del título y luego se añaden las categorías
+                aptitudesContainer.innerHTML = '<h2 class="section-title">Aptitudes</h2>' + data.aptitudes.map(category => `
                     <div class="skill-category">
                         <h4>${category.categoria}</h4>
                         <ul>
@@ -316,40 +340,67 @@
                 `).join('');
             }
 
-            // Hacer todos los campos de texto editables
+            // Hacer campos de texto editables
             function makeEditable() {
-                const elementsToEdit = document.querySelectorAll('#resume h1, #resume h3, #resume h4, #resume p, #resume li');
-                elementsToEdit.forEach(el => {
+                const query = '#resume h1, #resume h3, #resume h4, #resume p, #resume li';
+                document.querySelectorAll(query).forEach(el => {
                     el.setAttribute('contenteditable', 'true');
                 });
             }
             
-            // Ejemplo de cómo agregar la fuente Roboto a jsPDF
-            const robotoFontBase64 = 'AAEAAAASAQAABAAgR0RFRrRCsIIAA...'; // Pega aquí el base64 de Roboto-Regular.ttf
-
-            window.jsPDF = window.jspdf.jsPDF;
-
-            const pdf = new jsPDF();
-            pdf.addFileToVFS("Roboto-Regular.ttf", robotoFontBase64);
-            pdf.addFont("Roboto-Regular.ttf", "Roboto", "normal");
-            pdf.setFont("Roboto");
-
             // Funcionalidad de descarga PDF
-            document.getElementById('download-pdf-btn').addEventListener('click', function () {
-                document.fonts.ready.then(function () {
-                    const resume = document.querySelector("#resume");
-                    html2canvas(resume, {
-                        scale: 2 // mejora la calidad de la imagen
-                    }).then(canvas => {
-                        const imgData = canvas.toDataURL('image/png');
-                        const pdf = new window.jspdf.jsPDF('p', 'pt', 'a4');
-                        // Calcula el tamaño proporcional para A4
-                        const pdfWidth = pdf.internal.pageSize.getWidth();
-                        const pdfHeight = pdf.internal.pageSize.getHeight();
-                        // Ajusta la imagen para que ocupe toda la hoja A4
-                        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-                        pdf.save("curriculum.pdf");
-                    });
+            document.getElementById('download-pdf-btn').addEventListener('click', () => {
+                // Eliminar el foco de cualquier elemento editable para quitar los bordes
+                if (document.activeElement) {
+                    document.activeElement.blur();
+                }
+
+                const resumeElement = document.getElementById("resume");
+                
+                // Usamos las fuentes del navegador para que la captura sea fiel
+                html2canvas(resumeElement, {
+                    scale: 2, // Aumenta la resolución de la captura
+                    useCORS: true,
+                    logging: true,
+                    onclone: (document) => {
+                        // Ocultar el cursor de texto en los elementos editables durante la captura
+                        document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+                           el.style.cursor = 'default';
+                        });
+                    }
+                }).then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+                    const { jsPDF } = window.jspdf;
+                    
+                    // Dimensiones del PDF en A4 (en puntos)
+                    const pdfWidth = 595.28;
+                    const pdfHeight = 841.89;
+
+                    // Relación de aspecto del canvas (imagen capturada)
+                    const canvasAspectRatio = canvas.width / canvas.height;
+                    
+                    // Relación de aspecto del PDF (página A4)
+                    const pdfAspectRatio = pdfWidth / pdfHeight;
+
+                    let finalWidth, finalHeight;
+
+                    // *** LÓGICA CORREGIDA PARA EVITAR DEFORMACIÓN ***
+                    // Si la imagen es más "ancha" que la página, ajustamos por el ancho
+                    if (canvasAspectRatio > pdfAspectRatio) {
+                        finalWidth = pdfWidth;
+                        finalHeight = pdfWidth / canvasAspectRatio;
+                    } else { // Si la imagen es más "alta" (o igual), ajustamos por el alto
+                        finalHeight = pdfHeight;
+                        finalWidth = pdfHeight * canvasAspectRatio;
+                    }
+
+                    // Centrar la imagen en la página del PDF
+                    const x = (pdfWidth - finalWidth) / 2;
+                    const y = (pdfHeight - finalHeight) / 2;
+                    
+                    const pdf = new jsPDF('p', 'pt', 'a4');
+                    pdf.addImage(imgData, 'PNG', x, y, finalWidth, finalHeight);
+                    pdf.save("curriculum-profesional.pdf");
                 });
             });
 
